@@ -1,1 +1,1 @@
- shell coding readme
+ script shell basics 
