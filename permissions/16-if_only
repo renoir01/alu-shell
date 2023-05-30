@@ -1,2 +1,2 @@
 #!/bin/bash
-if [ "$CURRENT_OWNER" = "guillaume" ] then  sudo chown vincent:hello hello fi
+sudo chown --follow=guillaume vincent:hello  fi
