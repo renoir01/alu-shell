@@ -1,2 +1,2 @@
-#!/bin/ba
+#!/bin/bash
 if [ "$CURRENT_OWNER" = "guillaume" ] then  sudo chown vincent:hello hello fi
