@@ -1,44 +1,28 @@
 #!/usr/bin/env bash
-# Script for managing a process
-
+#manage 
 if [[ "$#" == "1" ]]; then
   if [[ "$1" == "start" ]]; then
-    # Start the process in the background
     ./manage_my_process &
-    
-    # Save the process ID to a file
     echo "$!" > /var/run/my_process.pid
-    
-    echo "The manage_my_process program has been started."
+    echo "manage_my_process started"
   elif [[ "$1" == "stop" ]]; then
-    # Check if the process ID file exists
     if test -f "/var/run/my_process.pid"; then
-      # Kill the process using the ID from the file
       kill "$(cat /var/run/my_process.pid)"
     fi
-    
-    # Remove the process ID file
     rm /var/run/my_process.pid
-    
-    echo "The manage_my_process program has been stopped."
+    echo "manage_my_process stopped"
   elif [[ "$1" == "restart" ]]; then
-    # Stop the program
+    # stop program
     if test -f "/var/run/my_process.pid"; then
-      # Kill the process using the ID from the file
       kill "$(cat /var/run/my_process.pid)"
     fi
-    
-    # Start the program in the background
+    # start program
     ./manage_my_process &
-    
-    # Save the new process ID to the file
     echo "$!" > /var/run/my_process.pid
-    
-    echo "The manage_my_process program has been restarted."
+    echo "manage_my_process restarted"
   else
     echo "Usage: manage_my_process {start|stop|restart}"
   fi
 else
   echo "Usage: manage_my_process {start|stop|restart}"
 fi
-
